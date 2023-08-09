@@ -1,10 +1,10 @@
 /**
- * @TODO 1 - get a reference to the Firebase Database object
+ * @TODO Step 1 - get a reference to the Firebase Database object
  */
 const database = firebase.database().ref();
 console.log(database);
 /**
- * @TODO 2 - get const references to the following elements:
+ * @TODO Step 2 - get const references to the following elements:
  *      - div with id #all-messages
  *      - input with id #username
  *      - input with id #message
@@ -18,7 +18,7 @@ const sendBtn = document.getElementById('send-btn');
 sendBtn.onclick = updateDB;
 
 /**
- * @TODO 3 - create a function called updateDB which takes
+ * @TODO Step 3 - create a function called updateDB which takes
  * one parameter, the event, that:
  *      - gets the values of the input elements and stores
  *        the data in a temporary object with the keys USERNAME
@@ -45,14 +45,14 @@ function updateDB(event){
 }
 
 /**
- * @TODO 4 - add the addMessageToBoard function as an event
+ * @TODO Step 4 - add the addMessageToBoard function as an event
  * handler for the "child_added" event on the database
  * object
  */
 database.on("child_added", addMessageToBoard);
 
 /**
- * @TODO 5 - create a function called addMessageToBoard that
+ * @TODO Step 5 - create a function called addMessageToBoard that
  * takes one parameter rowData which:
  *      - console.logs the data within rowData
  *      - creates a new HTML element for a single message
@@ -71,7 +71,7 @@ function addMessageToBoard(rowData){
 }
 
 /** 
- * @TODO create a function called makeSingleMessageHTML which takes
+ * @TODO Step 6 - create a function called makeSingleMessageHTML which takes
  * two parameters, usernameTxt and messageTxt, that:
  *      - creates a parent div with the class .single-message
  * 
@@ -87,6 +87,20 @@ function addMessageToBoard(rowData){
  * 
  *      - returns the parent div
  */
+function makeSingleMessageHTML(usernameTxt, messageTxt){
+    //Create parent div
+    let parentDiv = document.createElement('div');
+    parentDiv.classList.add('single-message');
+
+    //creating a p element
+    let usernameP = document.createElement("p");
+    usernameP.classList.add('single-message-username');
+    usernameP.innerHTML = usernameTxt + ": " + messageTxt;
+
+    //Return the full username + message parentDiv
+    parentDiv.append(usernameP);
+    return parentDiv;
+}
 
 /**
  * @BONUS add an onkeyup event handler to the form HTML
