@@ -1,16 +1,20 @@
 /**
- * @TODO get a reference to the Firebase Database object
+ * @TODO 1 - get a reference to the Firebase Database object
  */
 const database = firebase.database().ref();
 /**
- * @TODO get const references to the following elements:
+ * @TODO 2 - get const references to the following elements:
  *      - div with id #all-messages
  *      - input with id #username
  *      - input with id #message
  *      - button with id #send-btn and the updateDB
  *        function as an onclick event handler
  */
-
+const allMessages = document.getElementById('all-messages');
+const usernameElem = document.getElementById('username');
+const messageElem = document.getElementById('message');
+const sendBtn = document.getElementById('send-btn');
+sendBtn.onclick = updateDB;
 /**
  * @TODO create a function called updateDB which takes
  * one parameter, the event, that:
