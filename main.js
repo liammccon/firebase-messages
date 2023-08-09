@@ -1,7 +1,7 @@
 /**
  * @TODO get a reference to the Firebase Database object
  */
-
+const database = firebase.database().ref();
 /**
  * @TODO get const references to the following elements:
  *      - div with id #all-messages
