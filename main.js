@@ -2,6 +2,7 @@
  * @TODO 1 - get a reference to the Firebase Database object
  */
 const database = firebase.database().ref();
+console.log(database);
 /**
  * @TODO 2 - get const references to the following elements:
  *      - div with id #all-messages
@@ -15,8 +16,9 @@ const usernameElem = document.getElementById('username');
 const messageElem = document.getElementById('message');
 const sendBtn = document.getElementById('send-btn');
 sendBtn.onclick = updateDB;
+
 /**
- * @TODO create a function called updateDB which takes
+ * @TODO 3 - create a function called updateDB which takes
  * one parameter, the event, that:
  *      - gets the values of the input elements and stores
  *        the data in a temporary object with the keys USERNAME
@@ -25,6 +27,23 @@ sendBtn.onclick = updateDB;
  *      - writes this object to the database
  *      - resets the value of #message input element
  */
+function updateDB(event){
+    event.preventDefault();
+
+    //Store the data into a temp object
+    const data = {
+        USERNAME: usernameElem.value,
+        MESSAGE: messageElem.value,
+    }
+
+    //Writing to the database
+    database.push(data);
+
+    //Reset the value of the message
+    usernameElem.value = '';
+    messageElem.value = '';
+    console.log(database)
+}
 
 /**
  * @TODO add the addMessageToBoard function as an event

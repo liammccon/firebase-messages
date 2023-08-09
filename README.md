@@ -13,3 +13,4 @@ Getting a reference to our database
 
 Writing to the database
 - Follow step 2 of `main.js`: getting references to our HTML elements
+- Follow the code in step 3 of `main.js`: updating the database.
