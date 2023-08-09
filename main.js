@@ -40,19 +40,19 @@ function updateDB(event){
     database.push(data);
 
     //Reset the value of the message
-    usernameElem.value = '';
     messageElem.value = '';
     console.log(database)
 }
 
 /**
- * @TODO add the addMessageToBoard function as an event
+ * @TODO 4 - add the addMessageToBoard function as an event
  * handler for the "child_added" event on the database
  * object
  */
+database.on("child_added", addMessageToBoard);
 
 /**
- * @TODO create a function called addMessageToBoard that
+ * @TODO 5 - create a function called addMessageToBoard that
  * takes one parameter rowData which:
  *      - console.logs the data within rowData
  *      - creates a new HTML element for a single message
@@ -61,6 +61,14 @@ function updateDB(event){
  *        #all-messages (we should have a reference already!)
  * 
  */
+function addMessageToBoard(rowData){
+    //get the object passed from the firebase 
+    const data = rowData.val();
+    console.log(data);
+
+    let singleMessage = makeSingleMessageHTML(data.USERNAME, data.MESSAGE);
+    allMessages.append(singleMessage);
+}
 
 /** 
  * @TODO create a function called makeSingleMessageHTML which takes
