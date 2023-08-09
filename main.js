@@ -92,13 +92,18 @@ function makeSingleMessageHTML(usernameTxt, messageTxt){
     let parentDiv = document.createElement('div');
     parentDiv.classList.add('single-message');
 
-    //creating a p element
+    //creating p element for username 
     let usernameP = document.createElement("p");
     usernameP.classList.add('single-message-username');
-    usernameP.innerHTML = usernameTxt + ": " + messageTxt;
+    usernameP.innerHTML = usernameTxt + ":";
+    parentDiv.append(usernameP);
+    //creating p element for message
+    let messageP = document.createElement('p');
+    messageP.innerHTML = messageTxt;
+    parentDiv.append(messageP);
+
 
     //Return the full username + message parentDiv
-    parentDiv.append(usernameP);
     return parentDiv;
 }
 
