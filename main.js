@@ -2,7 +2,7 @@
  * @TODO Step 1 - get a reference to the Firebase Database object
  */
 const database = firebase.database().ref();
-console.log(database);
+
 /**
  * @TODO Step 2 - get const references to the following elements:
  *      - div with id #all-messages
@@ -114,3 +114,4 @@ function makeSingleMessageHTML(usernameTxt, messageTxt){
  * 
  * @BONUS use an arrow function
  */
+
